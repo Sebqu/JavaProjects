@@ -55,12 +55,10 @@ public class ConsoleMatch {
     private void showBoard(char board[][]) {
         for (int i = 0; board.length > i; i++)
             for (int j = 0; board[i].length > j; j++) {
-                if (j == 0)
-                    System.out.print(printSymbol(board[i][j]));
-                else if (j == board[i].length - 1)
+                if (j == board[i].length - 1)
                     System.out.println(printSymbol(board[i][j]));
                 else
-                    System.out.print("|" + printSymbol(board[i][j]) + "|");
+                    System.out.print(printSymbol(board[i][j]) + "|");
 
 
             }
@@ -77,7 +75,12 @@ public class ConsoleMatch {
     }
 
     private void enterSymbol(char symbol, char board[][], int column, int row) {
-        if (board[column][row] != 0) {
+        if (column >= board.length || row >= board.length || column < 0 || row < 0) {
+            System.out.println("You are out of board, plase choose one more time :)");
+            column = in.nextInt() - 1;
+            row = in.nextInt() - 1;
+            enterSymbol(symbol, board, column, row);
+        } else if (board[column][row] != 0) {
             System.out.println("This field is already filled, plase choose again");
             column = in.nextInt() - 1;
             row = in.nextInt() - 1;

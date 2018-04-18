@@ -1,18 +1,39 @@
+
 package com.sebastiangorzelnik;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Plase enter a Player One name: ");
-        String playerOneName = in.nextLine();
-        System.out.println("Plase enter a Player Two name: ");
-        String playerTWoName = in.nextLine();
-        int playerOneScore = 0;
-        int playerTwoScore = 0;
+        Scanner inInt = new Scanner(System.in);
+        Scanner inString = new Scanner(System.in);
+        int numerOfPlayers=0;
+        String playerName;
+        List<Player> players = new ArrayList<>();
+
+        System.out.println("What do you want to do? \n Please Press: \n 1.Add New Player \n " +
+                "2.Play Match \n 3.Check Score \n 4.End Game \n");
+        int click = inInt.nextInt();
+
+        while(click!=4) {
+            if(click == 1){
+                System.out.print("Player's name \n");
+                Player playerName
+                playerName = inString.nextLine();
+                if(players.contains(playerName));
+                players.add(playerName);
+
+            }
+
+
+
+        }
+
         System.out.println("How many fields should have a board?:");
-        int field = in.nextInt();
-        ConsoleMatch FirstMatch = new ConsoleMatch(playerOneName, playerTWoName,playerOneScore, playerTwoScore, field);
+        int field = inInt.nextInt();
+       // ConsoleMatch FirstMatch = new ConsoleMatch(playerOneName, playerTWoName);
 
 
      /*   int [][] board = new int [3][3];
